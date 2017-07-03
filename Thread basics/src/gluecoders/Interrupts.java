@@ -36,7 +36,7 @@ public class Interrupts implements Runnable {
         };
 
         // if calling any method frequently that throws InterruptedException, we can handle the exception to define behavior on interruption
-        for (int i = 0; i < importantInfo.length; i++) {
+        /*for (int i = 0; i < importantInfo.length; i++) {
             // Pause for 4 seconds
             try {
                 System.out.println("Sleeping as not yet interrupted.");
@@ -62,21 +62,21 @@ public class Interrupts implements Runnable {
 
             // Print a message
             System.out.println(importantInfo[i] + " Current Thread: " + Thread.currentThread().getName());
-        }
+        }*/
 
         // if not calling any method that throws InterruptedException, and thus not possible to catch the exception,
         // we can call Thread.interrupted() periodically to check the status
-        /*for (int i=0; i<Integer.MAX_VALUE; i++){
+        for (int i=0; i<Integer.MAX_VALUE; i++){
             System.out.println("Doing some heavy work as not yet interrupted.");
 
             if (Thread.interrupted()){  // this returns the value of Interruption Status flag for the current thread.
                 // if the flag was true, it will reset the flag to false
                 System.out.println("We got interrupted. We can return from here!!");
-                System.out.println("Remember the static interrupted() that we used above to come inside this block resets the interrupt status." +
+                System.out.println("Remember the static interrupted() that we used above to come inside this block resets the interrupt status. " +
                         "Thus, Interrupt status now: " + Thread.interrupted());
                 return;
             }
-        }*/
+        }
     }
 
     public static void main(String[] args) throws InterruptedException {
